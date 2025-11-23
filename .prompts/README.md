@@ -23,9 +23,12 @@ This directory contains modular prompts for AI-assisted Norns script development
 │   ├── create-engine.md  # Engine creation workflow
 │   ├── patterns.md       # 9 Working engine patterns
 │   └── osc-testing.md    # Testing via OSC and debugging
-└── mods/                 # System mod development
-    ├── create-mod.md     # Full mod creation workflow
-    └── patterns.md       # Common mod patterns (8 patterns)
+├── mods/                 # System mod development
+│   ├── create-mod.md     # Full mod creation workflow
+│   └── patterns.md       # Common mod patterns (8 patterns)
+└── softcut/              # Audio buffer looping and recording
+    ├── workflow.md       # Softcut workflow and 4 patterns
+    └── api-reference.md  # Complete softcut API reference
 ```
 
 ## Quick Start
@@ -37,6 +40,7 @@ This directory contains modular prompts for AI-assisted Norns script development
    - **Understand**: Analyzing existing code
    - **Enhance**: Adding features
    - **Bugfix**: Fixing problems
+   - **Audio Manipulation**: Looping, sampling, buffer processing → **Consider Softcut**
 
 2. **Load Relevant Prompts**:
    - **For Scripts**:
@@ -56,6 +60,12 @@ This directory contains modular prompts for AI-assisted Norns script development
      - Add `engines/osc-testing.md` for local testing and debugging
      - Reference SuperCollider documentation for deep dives
 
+   - **For Audio Manipulation**:
+     - Start with `softcut/workflow.md` for understanding softcut
+     - Add `softcut/api-reference.md` for complete API documentation
+     - Choose pattern from workflow.md (looper, tape, time-stretch, granular)
+     - Reference Softcut studies at https://monome.org/docs/norns/softcut/
+
 3. **Provide Targeted Guidance**:
    - Use specific code examples from appropriate patterns file
    - Match the complexity level
@@ -72,13 +82,16 @@ All prompts are designed to be reasonably sized for efficient token usage:
 - Hardware guides: 4-7 KB each (3 files)
 - Engine development: 6-10 KB each (3 files)
 - Mod development: 4-8 KB each (2 files)
+- Softcut documentation: 5-8 KB each (2 files)
 
-Total library: ~135 KB of prompt content, easily assembled into working sessions without exceeding reasonable token budgets.
+Total library: ~160 KB of prompt content, easily assembled into working sessions without exceeding reasonable token budgets.
 
 **Typical Session Loading**:
 - Script creation: ~15-20 KB (core + references + hardware if needed)
+- Script with looping: ~18-25 KB (script + softcut + references)
 - Mod creation: ~10-14 KB (core + mod patterns)
 - Engine creation: ~18-25 KB (create-engine + patterns + osc-testing)
+- Softcut looper: ~12-18 KB (softcut workflow + api-reference)
 - Debugging: ~8-12 KB (bugfix workflow + patterns)
 - Quick lookup: ~3-5 KB (specific reference file)
 
@@ -95,9 +108,10 @@ These prompts work with:
 - **Script Development**: Lua code with examples for hardware integration (Grid, Arc, MIDI)
 - **Mod Development**: Lua code focusing on hooks, system integration, and API exposure
 - **Engine Development**: SuperCollider code for synthesis with local testing via OSC
-- **Performance**: All tips account for Norns hardware constraints, mod ordering, and CPU limits
+- **Softcut**: Audio buffer looping, sampling, recording with 4 patterns and complete API
+- **Performance**: All tips account for Norns hardware constraints, mod ordering, CPU limits
 - **Skill Levels**: Prompts designed for beginner through advanced developers
-- **Separation**: Scripts, mods, and engines have distinct development workflows and constraints
+- **Separation**: Scripts, mods, engines, and softcut have distinct workflows and constraints
 - **Testing**: Comprehensive testing strategies for each work type (local, device, OSC)
 
 ## Key Distinctions: Scripts vs Mods

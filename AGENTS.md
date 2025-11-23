@@ -31,6 +31,7 @@ Identify script scope and requirements:
   - Hardware synthesis (custom SuperCollider engine)
   - Data/file management (saving/loading state)
   - Network/OSC communication
+  - **Audio Manipulation** (looping, sampling, buffer processing) → **Consider Softcut**
 
 - **Mod**: System modification in `~/dust/mods/` affecting all scripts
   - Utility library (provides helper functions)
@@ -52,7 +53,26 @@ Identify script scope and requirements:
 - Intermediate: Multiple parameters, grid/arc integration, state management
 - Advanced: Custom engines, complex signal routing, real-time synthesis
 
-### 3. Dynamic Module Loading
+### 3. Softcut Conditional Logic
+
+**Automatically load softcut prompts if the script involves any of these**:
+
+- **Audio Recording**: Recording external audio, microphone, or line input
+- **Looping**: Creating loops, overdubbing, real-time looping
+- **Sampling**: Sample playback, time-stretching, pitch-shifting
+- **Buffer Manipulation**: Working with audio buffers, granular effects
+- **Tape Emulation**: Multi-track tape behavior, vintage effects
+- **Live Audio Processing**: Real-time audio effects or signal manipulation
+
+**Softcut is usually NOT needed for**:
+- Pure synthesis (use custom engines instead)
+- Playing pre-recorded samples (use built-in engines)
+- Scripts with no audio I/O
+- Simple drum machines or sequencers (unless they record)
+
+**Decision Rule**: If a script mentions recording, looping, sampling, or buffer manipulation → check if **Softcut** can simplify the implementation.
+
+### 4. Dynamic Module Loading
 
 Load modules in this order based on detected task and context:
 
@@ -60,10 +80,11 @@ Load modules in this order based on detected task and context:
 1. Core guidance (always)
 2. Task-specific workflow
 3. Script type specifications
-4. Hardware integration guides (if needed)
-5. Engine development (if needed)
-6. Testing & SuperCollider (if audio involved)
-7. Advanced patterns (as needed)
+4. Softcut prompts (if audio manipulation involved)
+5. Hardware integration guides (if needed)
+6. Engine development (if needed)
+7. Testing & SuperCollider (if audio involved)
+8. Advanced patterns (as needed)
 ```
 
 ## Core Principles
@@ -196,6 +217,25 @@ This library is organized in `.prompts/` with the following structure:
 - Common issues and solutions
 - Integration testing on Norns device
 
+### Softcut Audio Looping (`.prompts/softcut/`)
+
+**workflow.md** - Multi-voice buffer looping and recording
+- What is softcut (6 voices, 2 buffers, hardware optimized)
+- When to use softcut (looping, sampling, buffer manipulation)
+- Basic workflow (enable, loop boundaries, playback, recording)
+- 4 complete patterns (looper, multitrack tape, time-stretch, granular)
+- Important notes (48kHz, buffer size, input sources, feedback loops)
+
+**api-reference.md** - Complete softcut API reference
+- Enable/disable and buffer management
+- Playback and rate control
+- Loop and recording parameters
+- Output filtering (pre-record and post-playback)
+- Matrix mixing and cross-patching
+- Position tracking and polling
+- Parameter ranges and initialization patterns
+- Common mistakes and troubleshooting
+
 ## Usage Workflow
 
 When assisting with a Norns development task:
@@ -209,10 +249,12 @@ When assisting with a Norns development task:
    - If Script: type (basic, grid, arc, MIDI, engine, data, OSC)
    - If Mod: type (utility library, system enhancement, audio processing)
    - If Engine: type (synth, polyphonic, effect, sampler, etc.)
+   - **Does it involve audio manipulation?** (recording, looping, sampling, buffers)
    - What complexity level? (beginner, intermediate, advanced)
 
 3. **Load relevant prompts**
    - **Always**: Core task workflow (tasks/create-*.md, understand.md, enhance.md, bugfix.md)
+   - **If Audio Manipulation detected**: Load .prompts/softcut/ documents (workflow.md, api-reference.md)
    - **If Script**: Load hardware guides, reference materials as needed
    - **If Mod**: Load .prompts/mods/ documents (patterns.md)
    - **If Engine**: Load .prompts/engines/ documents (create-engine.md, patterns.md, osc-testing.md)
@@ -220,10 +262,11 @@ When assisting with a Norns development task:
 
 4. **Provide contextualized guidance**
    - **For Scripts**: Use references/patterns.md (screen, UI, hardware)
+   - **For Audio Manipulation Scripts**: Suggest softcut patterns from softcut/workflow.md
    - **For Mods**: Use mods/patterns.md (hooks, state, system integration)
    - **For Engines**: Use engines/patterns.md (synths, oscillators) and osc-testing.md (debugging)
-   - Reference API docs for function signatures
-   - Link to appropriate SuperCollider resources for engine development
+   - Reference API docs (softcut/api-reference.md for buffer operations)
+   - Link to appropriate resources (SuperCollider, Softcut studies, hardware docs)
 
 ## Tips for Effective Assistance
 
