@@ -19,8 +19,10 @@ This directory contains modular prompts for AI-assisted Norns script development
 │   ├── grid.md           # Monome Grid integration
 │   ├── arc.md            # Monome Arc integration
 │   └── midi.md           # MIDI controller integration
-├── engines/              # Synthesis and engine development
-│   └── supercollider-basics.md  # SuperCollider engine guide
+├── engines/              # SuperCollider engine development
+│   ├── create-engine.md  # Engine creation workflow
+│   ├── patterns.md       # 9 Working engine patterns
+│   └── osc-testing.md    # Testing via OSC and debugging
 └── mods/                 # System mod development
     ├── create-mod.md     # Full mod creation workflow
     └── patterns.md       # Common mod patterns (8 patterns)
@@ -29,11 +31,12 @@ This directory contains modular prompts for AI-assisted Norns script development
 ## Quick Start
 
 1. **Task Detection**: Identify whether the user is asking about:
-   - **Create Script**: Building a new standalone script
-   - **Create Mod**: Building a system-level modification
-   - **Understand**: Analyzing an existing script or mod
-   - **Enhance**: Adding features to a script or mod
-   - **Bugfix**: Fixing problems in a script or mod
+   - **Create Script**: Building a new standalone script in Lua
+   - **Create Mod**: Building a system-level modification in Lua
+   - **Create Engine**: Building a SuperCollider audio synth
+   - **Understand**: Analyzing existing code
+   - **Enhance**: Adding features
+   - **Bugfix**: Fixing problems
 
 2. **Load Relevant Prompts**:
    - **For Scripts**:
@@ -47,12 +50,19 @@ This directory contains modular prompts for AI-assisted Norns script development
      - Add `mods/patterns.md` for common mod patterns and documentation
      - Reference `references/patterns.md` for general Lua patterns
 
+   - **For Engines**:
+     - Start with `tasks/create-engine.md` (or `engines/create-engine.md`)
+     - Add `engines/patterns.md` for 9 working synth patterns
+     - Add `engines/osc-testing.md` for local testing and debugging
+     - Reference SuperCollider documentation for deep dives
+
 3. **Provide Targeted Guidance**:
    - Use specific code examples from appropriate patterns file
    - Match the complexity level
    - Link to relevant external resources
    - For scripts: Test on real hardware constraints
    - For mods: Test with multiple mods enabled, check hook ordering
+   - For engines: Test locally in SuperCollider IDE, then on Norns device
 
 ## Prompt Sizes
 
@@ -60,14 +70,15 @@ All prompts are designed to be reasonably sized for efficient token usage:
 - Task workflows: 2-4 KB each (5 files)
 - References: 3-6 KB each (2 files)
 - Hardware guides: 4-7 KB each (3 files)
-- Engine docs: 5-8 KB each (1 file)
+- Engine development: 6-10 KB each (3 files)
 - Mod development: 4-8 KB each (2 files)
 
-Total library: ~95 KB of prompt content, easily assembled into working sessions without exceeding reasonable token budgets.
+Total library: ~135 KB of prompt content, easily assembled into working sessions without exceeding reasonable token budgets.
 
 **Typical Session Loading**:
 - Script creation: ~15-20 KB (core + references + hardware if needed)
-- Mod creation: ~10-14 KB (core + mod patterns + documentation)
+- Mod creation: ~10-14 KB (core + mod patterns)
+- Engine creation: ~18-25 KB (create-engine + patterns + osc-testing)
 - Debugging: ~8-12 KB (bugfix workflow + patterns)
 - Quick lookup: ~3-5 KB (specific reference file)
 
@@ -83,10 +94,11 @@ These prompts work with:
 
 - **Script Development**: Lua code with examples for hardware integration (Grid, Arc, MIDI)
 - **Mod Development**: Lua code focusing on hooks, system integration, and API exposure
-- **Engine Development**: SuperCollider code for synthesis
-- **Performance**: All tips account for Norns hardware constraints and mod ordering
+- **Engine Development**: SuperCollider code for synthesis with local testing via OSC
+- **Performance**: All tips account for Norns hardware constraints, mod ordering, and CPU limits
 - **Skill Levels**: Prompts designed for beginner through advanced developers
-- **Separation**: Scripts and mods have distinct development workflows and constraints
+- **Separation**: Scripts, mods, and engines have distinct development workflows and constraints
+- **Testing**: Comprehensive testing strategies for each work type (local, device, OSC)
 
 ## Key Distinctions: Scripts vs Mods
 

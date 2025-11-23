@@ -10,12 +10,13 @@ Dynamically load relevant prompt modules based on detected context:
 
 Detect the primary development task from user input, git context, or file changes:
 
-- **Create**: Building a new Norns script from scratch
-  - **Sub-type: Create Script** (traditional application)
+- **Create**: Building new Norns code
+  - **Sub-type: Create Script** (standalone application)
   - **Sub-type: Create Mod** (system-level modification)
-- **Understand**: Analyzing and explaining an existing script, mod, or engine
-- **Enhance**: Adding new features to an existing script or mod
-- **Bugfix**: Diagnosing and fixing issues in a script or mod
+  - **Sub-type: Create Engine** (SuperCollider synthesis)
+- **Understand**: Analyzing and explaining existing code
+- **Enhance**: Adding new features
+- **Bugfix**: Diagnosing and fixing issues
 
 ### 2. Context Recognition
 
@@ -37,6 +38,14 @@ Identify script scope and requirements:
   - System enhancement (modifies core behavior)
   - Audio processing (extends audio capabilities)
   - Menu/UI mod (adds menu pages or features)
+
+- **Engine**: SuperCollider audio synthesis in `engine/` directory
+  - Monophonic synth (single voice)
+  - Polyphonic synthesizer (multiple voices)
+  - FM synthesis (frequency modulation)
+  - Granular synthesis (grain-based)
+  - Audio effect processor (reverb, delay, filter)
+  - Sampler (plays back audio files)
 
 **Complexity Level**:
 - Beginner: Simple UI, basic sequencing, single audio source
@@ -160,12 +169,32 @@ This library is organized in `.prompts/` with the following structure:
 
 ### Engine Development (`.prompts/engines/`)
 
-**supercollider-basics.md** - SuperCollider synthesis engine development
-- Basic synth definition structure
-- Envelope and oscillator design
-- Common patterns (polyphonic, FM, granular)
-- Norns integration and local testing
-- Parameter ranges and advanced patterns
+**create-engine.md** - Complete SuperCollider engine creation workflow
+- Engine vs script (separation of concerns, OSC communication)
+- SynthDef structure with gate and envelope control
+- Parameter specifications (control-rate vs audio-rate)
+- Lua wrapper and integration with scripts
+- Testing strategy (local and on Norns device)
+- Common issues and debugging approaches
+
+**patterns.md** - 9 Complete working engine patterns
+- Simple monophonic synth (basic template)
+- Polyphonic synthesizer (multiple voices)
+- FM synthesis (frequency modulation)
+- Granular synthesis (grain-based textures)
+- Additive synthesis (harmonic combination)
+- Audio effect processor (reverb, processing)
+- Sample playback (loaded from disk)
+- LFO modulation (low-frequency oscillation)
+- Resonant filter (subtractive synthesis)
+
+**osc-testing.md** - Testing and debugging via OSC messages
+- SuperCollider IDE setup and server booting
+- Creating and testing synths locally
+- OSC communication protocol and messages
+- Debugging techniques (print, scope, frequency analysis)
+- Common issues and solutions
+- Integration testing on Norns device
 
 ## Usage Workflow
 
@@ -173,27 +202,28 @@ When assisting with a Norns development task:
 
 1. **Detect task type** from user input
    - Is this about creating, understanding, enhancing, or fixing?
-   - If creating: Is it a script or a mod?
+   - If creating: Is it a script, mod, or engine?
 
 2. **Identify requirements**
-   - Work type: Script or Mod?
+   - Work type: Script, Mod, or Engine?
    - If Script: type (basic, grid, arc, MIDI, engine, data, OSC)
-   - If Mod: type (utility library, system enhancement, audio processing, etc.)
+   - If Mod: type (utility library, system enhancement, audio processing)
+   - If Engine: type (synth, polyphonic, effect, sampler, etc.)
    - What complexity level? (beginner, intermediate, advanced)
-   - What hardware or system features are involved?
 
 3. **Load relevant prompts**
-   - Always: Core task workflow (tasks/ appropriate file)
-   - If Script: Load hardware guides, engine docs, reference materials as needed
-   - If Mod: Load .prompts/mods/ documents (patterns.md, manifest.md)
+   - **Always**: Core task workflow (tasks/create-*.md, understand.md, enhance.md, bugfix.md)
+   - **If Script**: Load hardware guides, reference materials as needed
+   - **If Mod**: Load .prompts/mods/ documents (patterns.md)
+   - **If Engine**: Load .prompts/engines/ documents (create-engine.md, patterns.md, osc-testing.md)
    - As needed: Studies or advanced patterns from references
 
 4. **Provide contextualized guidance**
-   - **For Scripts**: Use examples from references/patterns.md
-   - **For Mods**: Use examples from mods/patterns.md
+   - **For Scripts**: Use references/patterns.md (screen, UI, hardware)
+   - **For Mods**: Use mods/patterns.md (hooks, state, system integration)
+   - **For Engines**: Use engines/patterns.md (synths, oscillators) and osc-testing.md (debugging)
    - Reference API docs for function signatures
-   - Link to appropriate guides (hardware for scripts, hooks for mods)
-   - Suggest SuperCollider approaches for custom synthesis (scripts only)
+   - Link to appropriate SuperCollider resources for engine development
 
 ## Tips for Effective Assistance
 
