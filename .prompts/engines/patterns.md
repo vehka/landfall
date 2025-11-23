@@ -141,7 +141,7 @@ SynthDef(\Granular_default, {
 );
 ```
 
-**Note**: Granular synthesis is CPU-intensive on Norns. Use simpler patterns when possible.
+**Note**: Granular synthesis is CPU-intensive on norns. Use simpler patterns when possible.
 
 ## Pattern 5: Additive Synthesis
 
@@ -207,7 +207,7 @@ SynthDef(\Reverb_default, {
 
 ## Pattern 7: Sample Playback
 
-Load and play back samples (use sparingly on Norns).
+Load and play back samples (use sparingly on norns).
 
 ```supercollider
 Engine.register(\Sampler);
@@ -236,7 +236,7 @@ SynthDef(\Sampler_default, {
 );
 ```
 
-**Warning**: Sample loading uses disk I/O. Avoid on Norns if possible.
+**Warning**: Sample loading uses disk I/O. Avoid on norns if possible.
 
 ## Pattern 8: LFO Modulation
 

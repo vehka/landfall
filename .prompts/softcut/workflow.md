@@ -2,7 +2,7 @@
 
 ## What is Softcut?
 
-Softcut is a **built-in multi-voice sample playback and recording system** on Norns. It provides:
+Softcut is a **built-in multi-voice sample playback and recording system** on norns. It provides:
 - **6 independent voices** (play/record heads) with individual parameters
 - **2 mono buffers** (~5 minutes 49 seconds each at 48kHz)
 - **Real-time recording and overdubbing** with level control
@@ -11,7 +11,7 @@ Softcut is a **built-in multi-voice sample playback and recording system** on No
 - **Matrix mixing** with cross-patching between voices
 - **File I/O** for loading/saving audio
 
-**Key Advantage**: Built-in, optimized for Norns hardware - no CPU overhead compared to custom scripting.
+**Key Advantage**: Built-in, optimized for norns hardware - no CPU overhead compared to custom scripting.
 
 ## When to Use Softcut
 
@@ -331,4 +331,4 @@ end
 - Official Softcut docs: https://monome.org/docs/norns/softcut/
 - Softcut API: https://monome.org/docs/norns/api/#softcut
 - Softcut Studies: https://monome.org/docs/norns/studies/ (search "softcut")
-- Norns source: ../norns/lua/core/softcut.lua
+- norns source: ../norns/lua/core/softcut.lua

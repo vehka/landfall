@@ -1,8 +1,8 @@
-# Norns Core API Reference
+# norns Core API Reference
 
 ## Script Lifecycle Functions
 
-Required functions in a Norns script:
+Required functions in a norns script:
 
 ```lua
 function init()
@@ -135,7 +135,7 @@ engine.gate(1)    -- Note on
 engine.gate(0)    -- Note off
 
 -- Check available engines and parameters
--- /System > Engines menu on Norns device
+-- /System > Engines menu on norns device
 ```
 
 ## Audio Hardware
@@ -165,7 +165,7 @@ clock.get_beats()           -- Get current beat position
 
 ## Utility Libraries
 
-Norns includes powerful built-in libraries:
+norns includes powerful built-in libraries:
 
 ### `musicutil`
 Music theory utilities:
@@ -230,12 +230,12 @@ norns.version.minor
 norns.version.patch
 
 norns.rerun()           -- Reload script
-norns.shutdown()        -- Shutdown Norns
+norns.shutdown()        -- Shutdown norns
 norns.system_cmd(cmd)   -- Execute shell command
 
 -- Version checking (use YYMMDD format)
 if norns.version.required("220101") then
-  -- code for Norns >= 2022-01-01
+  -- code for norns >= 2022-01-01
 end
 ```
 
@@ -245,5 +245,5 @@ Complete API documentation: https://monome.org/docs/norns/api/
 
 For detailed examples and advanced patterns, see:
 - `.prompts/references/patterns.md`
-- Norns Studies: https://monome.org/docs/norns/studies/
+- norns Studies: https://monome.org/docs/norns/studies/
 - Example scripts: https://github.com/monome/dust

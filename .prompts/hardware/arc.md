@@ -1,6 +1,6 @@
 # Arc Integration Guide
 
-The Monome Arc is a rotary encoder interface (1, 2, or 4 rings) that can be used for parameter control and real-time interaction with Norns scripts.
+The Monome Arc is a rotary encoder interface (1, 2, or 4 rings) that can be used for parameter control and real-time interaction with norns scripts.
 
 ## Basics
 

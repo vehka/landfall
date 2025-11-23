@@ -1,4 +1,4 @@
-# Norns Mod Patterns and Examples
+# norns Mod Patterns and Examples
 
 Common patterns for mod development with working code examples.
 
@@ -389,12 +389,12 @@ Create a README.md file to document your mod:
 ```markdown
 # My Awesome Mod
 
-Brief description of what this mod does and how it extends Norns.
+Brief description of what this mod does and how it extends norns.
 
 ## Installation
 
 1. Clone this repository into `~/dust/mods/my_awesome_mod/`
-2. Restart Norns
+2. Restart norns
 3. Enable the mod in `SYSTEM > MODS > My Awesome Mod`
 
 ## Usage
@@ -416,7 +416,7 @@ my_mod.some_function()
 
 ## Requirements
 
-- Norns version: [minimum version if any]
+- norns version: [minimum version if any]
 - Dependencies: [other mods if required]
 
 ## API Reference
@@ -472,6 +472,6 @@ Document public functions and hooks...
 
 ## Reference
 
-- Norns Mods Documentation: https://monome.org/docs/norns/mods/
-- Norns Hook System: ../norns/lua/core/mods.lua
+- norns Mods Documentation: https://monome.org/docs/norns/mods/
+- norns Hook System: ../norns/lua/core/mods.lua
 - Example Mods: https://github.com/monome (search "mod-")

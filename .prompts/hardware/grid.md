@@ -1,6 +1,6 @@
 # Grid Integration Guide
 
-The Monome Grid is a 16x8 or 8x8 button/LED matrix controller commonly used with Norns for sequencing and performance.
+The Monome Grid is a 16x8 or 8x8 button/LED matrix controller commonly used with norns for sequencing and performance.
 
 ## Basics
 

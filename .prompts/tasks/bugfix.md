@@ -1,7 +1,7 @@
-# Task: Debug and Fix Issues in a Norns Script
+# Task: Debug and Fix Issues in a norns Script
 
 ## Objective
-Diagnose and resolve bugs in Norns scripts using systematic debugging approaches.
+Diagnose and resolve bugs in norns scripts using systematic debugging approaches.
 
 ## Workflow
 
@@ -22,7 +22,7 @@ Diagnose and resolve bugs in Norns scripts using systematic debugging approaches
 
 ### 2. Debug Logging Strategy
 
-Since Norns has limited console visibility, use logging:
+Since norns has limited console visibility, use logging:
 
 **Print-based Debugging**:
 ```lua
@@ -189,16 +189,16 @@ end
 
 ## Reference Resources
 
-- Check Norns script logs in `~/.norns/` directory
+- Check norns script logs in `~/.norns/` directory
 - Use `.prompts/references/api.md` for API documentation
 - Review `.prompts/references/patterns.md` for correct patterns
 - Check example scripts at https://github.com/monome/dust for reference implementations
-- Norns source code in `../norns/` for deep dives
+- norns source code in `../norns/` for deep dives
 
 ## Advanced Debugging
 
-**Interacting with Norns Shell**:
-- Use telnet to Norns for direct Lua execution
+**Interacting with norns Shell**:
+- Use telnet to norns for direct Lua execution
 - Call functions and check return values in real-time
 - This is useful for testing fixes without full reload
 

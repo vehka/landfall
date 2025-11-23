@@ -1,6 +1,6 @@
 # Softcut API Reference
 
-Complete reference for all softcut functions based on official Norns API documentation.
+Complete reference for all softcut functions based on official norns API documentation.
 
 ## Enable/Disable
 
@@ -280,4 +280,4 @@ softcut.level_cut_cut(2, 1, 0.1)
 
 - Official Softcut API: https://monome.org/docs/norns/api/modules/softcut.html
 - Softcut Studies: https://monome.org/docs/norns/softcut/
-- Norns Source: ../norns/lua/core/softcut.lua
+- norns Source: ../norns/lua/core/softcut.lua

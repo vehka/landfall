@@ -1,6 +1,6 @@
-# Norns Development Prompt Library
+# norns Development Prompt Library
 
-This directory contains modular prompts for AI-assisted Norns script development. The prompts are organized by task type and domain, designed to be loaded conditionally based on context.
+This directory contains modular prompts for AI-assisted norns script development. The prompts are organized by task type and domain, designed to be loaded conditionally based on context.
 
 ## Directory Structure
 
@@ -13,7 +13,7 @@ This directory contains modular prompts for AI-assisted Norns script development
 │   ├── enhance.md        # Adding features to scripts/mods
 │   └── bugfix.md         # Debugging and fixing issues
 ├── references/           # API and pattern documentation
-│   ├── api-core.md       # Core Norns API reference
+│   ├── api-core.md       # Core norns API reference
 │   └── patterns.md       # Common script code patterns
 ├── hardware/             # Hardware integration guides
 │   ├── grid.md           # Monome Grid integration
@@ -46,7 +46,6 @@ This directory contains modular prompts for AI-assisted Norns script development
    - **For Scripts**:
      - Start with `tasks/create.md` (or understand/enhance/bugfix)
      - Add `hardware/` guides if grid/arc/MIDI is involved
-     - Add `engines/supercollider-basics.md` if custom synthesis needed
      - Reference `references/patterns.md` and `api-core.md`
 
    - **For Mods**:
@@ -72,7 +71,7 @@ This directory contains modular prompts for AI-assisted Norns script development
    - Link to relevant external resources
    - For scripts: Test on real hardware constraints
    - For mods: Test with multiple mods enabled, check hook ordering
-   - For engines: Test locally in SuperCollider IDE, then on Norns device
+   - For engines: Test locally in SuperCollider IDE, then on norns device
 
 ## Prompt Sizes
 
@@ -98,10 +97,10 @@ Total library: ~160 KB of prompt content, easily assembled into working sessions
 ## Integration Points
 
 These prompts work with:
-- **Norns API**: https://monome.org/docs/norns/api/
-- **Norns Studies**: https://monome.org/docs/norns/studies/
+- **norns API**: https://monome.org/docs/norns/api/
+- **norns Studies**: https://monome.org/docs/norns/studies/
 - **Example Scripts**: https://github.com/monome/dust
-- **Norns Source Code**: Available at `../norns/` relative to this repo
+- **norns Source Code**: Available at `../norns/` relative to this repo
 
 ## Notes
 
@@ -109,7 +108,7 @@ These prompts work with:
 - **Mod Development**: Lua code focusing on hooks, system integration, and API exposure
 - **Engine Development**: SuperCollider code for synthesis with local testing via OSC
 - **Softcut**: Audio buffer looping, sampling, recording with 4 patterns and complete API
-- **Performance**: All tips account for Norns hardware constraints, mod ordering, CPU limits
+- **Performance**: All tips account for norns hardware constraints, mod ordering, CPU limits
 - **Skill Levels**: Prompts designed for beginner through advanced developers
 - **Separation**: Scripts, mods, engines, and softcut have distinct workflows and constraints
 - **Testing**: Comprehensive testing strategies for each work type (local, device, OSC)

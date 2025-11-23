@@ -1,4 +1,4 @@
-# Norns Script Patterns and Best Practices
+# norns Script Patterns and Best Practices
 
 ## Common Code Patterns
 
@@ -345,6 +345,6 @@ end
 
 ## Reference Resources
 
-- Complete Norns API: https://monome.org/docs/norns/api/
+- Complete norns API: https://monome.org/docs/norns/api/
 - Example scripts: https://github.com/monome/dust
-- Norns Studies: https://monome.org/docs/norns/studies/
+- norns Studies: https://monome.org/docs/norns/studies/

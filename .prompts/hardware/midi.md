@@ -1,6 +1,6 @@
 # MIDI Integration Guide
 
-MIDI (Musical Instrument Digital Interface) allows Norns scripts to communicate with external synthesizers, controllers, and software.
+MIDI (Musical Instrument Digital Interface) allows norns scripts to communicate with external synthesizers, controllers, and software.
 
 ## Basics
 
@@ -252,7 +252,7 @@ end
 
 ## MIDI Implementation Reference
 
-Norns MIDI functions (see https://monome.org/docs/norns/api/#midi):
+norns MIDI functions (see https://monome.org/docs/norns/api/#midi):
 
 ```lua
 midi.connect(device_num)        -- Connect to device

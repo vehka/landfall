@@ -1,7 +1,7 @@
-# Task: Create a New Norns Script
+# Task: Create a New norns Script
 
 ## Objective
-Build a new Norns script from scratch with proper structure and functionality.
+Build a new norns script from scratch with proper structure and functionality.
 
 ## Script vs Mod?
 
@@ -70,7 +70,7 @@ Start with minimal viable version:
 **Timing**: Use `metro` for precise timing rather than polling loops
 - Create metros for UI refreshes (~30-60 Hz), audio updates, sequencer steps
 
-**Memory**: Norns has limited RAM; avoid storing large tables or frequent allocations
+**Memory**: norns has limited RAM; avoid storing large tables or frequent allocations
 - Use local variables within functions where possible
 - Profile memory usage if building complex scripts
 

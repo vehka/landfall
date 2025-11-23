@@ -1,4 +1,4 @@
-# Task: Understand an Existing Norns Script or Engine
+# Task: Understand an Existing norns Script or Engine
 
 ## Objective
 Analyze and explain existing scripts or SuperCollider engines to understand their implementation and design.
@@ -53,7 +53,7 @@ If script uses audio:
 
 ### 4. Library and Dependency Analysis
 
-- Check which Norns libraries are used (`musicutil`, `lattice`, `sequins`, etc.)
+- Check which norns libraries are used (`musicutil`, `lattice`, `sequins`, etc.)
 - Understand how data structures are organized (arrays, nested tables, etc.)
 - Look for custom abstractions or patterns
 
@@ -89,5 +89,5 @@ Generate documentation covering:
 
 - Use `.prompts/references/api.md` for understanding API calls
 - Use `.prompts/references/patterns.md` for recognizing common code patterns
-- Check Norns source: `../norns/lua/` for built-in library implementations
+- Check norns source: `../norns/lua/` for built-in library implementations
 - Review related studies at https://monome.org/docs/norns/studies/

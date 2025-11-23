@@ -1,7 +1,7 @@
-# Task: Create a Norns Mod
+# Task: Create a norns Mod
 
 ## Objective
-Build a system-level modification that extends core Norns functionality across all scripts.
+Build a system-level modification that extends core norns functionality across all scripts.
 
 ## What is a Mod?
 
@@ -161,7 +161,7 @@ Brief description of what this mod does.
 ## Installation
 
 1. Clone into `~/dust/mods/my_mod/`
-2. Restart Norns
+2. Restart norns
 3. Enable in SYSTEM > MODS > My Mod
 
 ## Usage
@@ -170,14 +170,14 @@ How users interact with this mod...
 
 ## Requirements
 
-Any dependencies or Norns version requirements...
+Any dependencies or norns version requirements...
 ```
 
 ### 7. Develop Modularly
 
 **Keep mods focused**:
 - One primary function per mod
-- Don't duplicate core Norns functionality
+- Don't duplicate core norns functionality
 - Document what global state your mod creates
 - Minimize side effects on other mods
 
@@ -213,7 +213,7 @@ See `.prompts/mods/menu-integration.md` for detailed patterns.
 
 **Local Testing**:
 1. Place mod in `~/dust/mods/my_mod/`
-2. Restart Norns
+2. Restart norns
 3. Enable mod via `SYSTEM > MODS`
 4. Load various scripts and verify behavior
 5. Check for errors in logs
@@ -237,7 +237,7 @@ When ready to share:
 
 1. **Version Control**: Push to GitHub
 2. **Documentation**: Write comprehensive README.md
-3. **Testing**: Get feedback from other Norns users
+3. **Testing**: Get feedback from other norns users
 4. **Maiden Integration**: Submit to Maiden project manager (optional)
 
 ## Common Mod Patterns
@@ -281,8 +281,8 @@ Adds menu pages or UI features:
 
 ## Reference Resources
 
-- Norns Mods Documentation: https://monome.org/docs/norns/mods/
-- Norns Source (mods): ../norns/lua/core/mods.lua
+- norns Mods Documentation: https://monome.org/docs/norns/mods/
+- norns Source (mods): ../norns/lua/core/mods.lua
 - Existing mods: https://github.com/monome (search for mod-* repos)
 - Hook system: ../norns/lua/core/mods.lua (grep for "hook.register")
 

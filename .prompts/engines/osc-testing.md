@@ -4,12 +4,12 @@ Comprehensive guide to testing SuperCollider engines locally and debugging via O
 
 ## Overview
 
-Norns communicates with SuperCollider via **OSC (Open Sound Control)** messages:
-- **Norns (Matron)** runs in Lua, sends OSC commands to audio server
+norns communicates with SuperCollider via **OSC (Open Sound Control)** messages:
+- **norns (Matron)** runs in Lua, sends OSC commands to audio server
 - **SuperCollider (Crone)** runs audio server on localhost:57110
 - Messages are sent over UDP on loopback interface (127.0.0.1)
 
-By understanding OSC, you can test engines without a Norns device.
+By understanding OSC, you can test engines without a norns device.
 
 ## Part 1: Local Testing Setup
 
@@ -109,9 +109,9 @@ Breaks down as:
 - `440.0`: Parameter value
 - etc.
 
-### Norns OSC Messages
+### norns OSC Messages
 
-Norns sends engine commands as OSC to SC:
+norns sends engine commands as OSC to SC:
 
 ```
 /cmd/engine/<name> arg1 arg2 ...
@@ -223,7 +223,7 @@ s.avgCPU;
 s.peakCPU;
 ```
 
-For Norns, keep CPU under 40% to avoid glitches.
+For norns, keep CPU under 40% to avoid glitches.
 
 ### Technique 5: Frequency Analysis
 
@@ -335,7 +335,7 @@ s.avgCPU.postln;  // What's the load?
 
 **Solutions**:
 1. Use simpler oscillators (Saw cheaper than expensive FM)
-2. Avoid `TGrains`, `FFT` on Norns
+2. Avoid `TGrains`, `FFT` on norns
 3. Use control-rate where possible
 4. Reduce polyphony
 5. Limit effects processing
@@ -359,12 +359,12 @@ env = EnvGen.kr(env, gate, doneAction: 2);  // Must have gate
 
 ## Part 5: Integration Testing
 
-### Simulate Norns Behavior
+### Simulate norns Behavior
 
-Once local testing works, simulate how Norns will control it:
+Once local testing works, simulate how norns will control it:
 
 ```supercollider
-// Simulate a Norns script playing notes
+// Simulate a norns script playing notes
 Task({
   var note_nums = [60, 62, 64, 65, 67];  // MIDI notes
 
@@ -396,12 +396,12 @@ Task({
 }).play;
 ```
 
-## Part 6: Norns Device Testing
+## Part 6: norns Device Testing
 
 Once local testing is complete:
 
 1. Place engine in `~/dust/code/my_script/engine/`
-2. Restart Norns
+2. Restart norns
 3. Load script that uses engine
 4. Check `~/.norns/matron.log` for errors:
    ```bash
@@ -428,13 +428,13 @@ Once local testing is complete:
 - [ ] CPU usage acceptable (< 40%)
 - [ ] Envelope triggers on gate
 - [ ] Engine syntax valid Lua when wrapped
-- [ ] Engine loads on Norns device
-- [ ] Norns matron.log shows no errors
+- [ ] Engine loads on norns device
+- [ ] norns matron.log shows no errors
 
 ## Reference
 
 - SuperCollider Server: https://doc.sccode.org/Server/
 - SuperCollider UGens: https://doc.sccode.org/Browse.html#UGens
 - OSC Specification: http://opensoundcontrol.org/
-- Norns Engine API: https://monome.org/docs/norns/api/#engine
+- norns Engine API: https://monome.org/docs/norns/api/#engine
 - SC Debugging: https://doc.sccode.org/Guides/Debugging.html

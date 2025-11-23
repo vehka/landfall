@@ -1,7 +1,7 @@
-# Task: Enhance an Existing Norns Script
+# Task: Enhance an Existing norns Script
 
 ## Objective
-Add new features or improve existing functionality in a Norns script while maintaining stability and code quality.
+Add new features or improve existing functionality in a norns script while maintaining stability and code quality.
 
 ## Workflow
 

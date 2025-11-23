@@ -1,13 +1,13 @@
-# Task: Create a SuperCollider Engine for Norns
+# Task: Create a SuperCollider Engine for norns
 
 ## Objective
-Build a custom SuperCollider synthesis engine and integrate it with Norns scripts via Lua.
+Build a custom SuperCollider synthesis engine and integrate it with norns scripts via Lua.
 
 ## Engine vs Script
 
 Before starting, understand the separation of concerns:
 
-- **Norns Script** (Lua): User interface, parameters, control logic running in Matron
+- **norns Script** (Lua): User interface, parameters, control logic running in Matron
 - **SuperCollider Engine** (SC): Real-time audio synthesis and processing running in Crone (audio server)
 - **Lua Wrapper** (Lua): Exposes engine commands to scripts via `engine.command()` calls
 
@@ -36,7 +36,7 @@ Before writing code, design:
 
 **Performance**:
 - CPU usage expectations
-- Will it run on Norns? (CPU is limited)
+- Will it run on norns? (CPU is limited)
 - Avoid heavy processing or sample playback if possible
 
 ### 2. File Structure
@@ -162,7 +162,7 @@ end
 return MyEngine
 ```
 
-Actually, Norns auto-generates these, so this is optional.
+Actually, norns auto-generates these, so this is optional.
 
 ### 6. Load in Script
 
@@ -201,15 +201,15 @@ end
 
 ### 7. Test and Debug
 
-**Local Testing** (without Norns device):
+**Local Testing** (without norns device):
 1. Start SuperCollider IDE
 2. Boot the audio server
 3. Load and test the SynthDef
 4. Use OSC to send test messages (see `.prompts/engines/osc-testing.md`)
 
-**On Norns Device**:
+**On norns Device**:
 1. Place engine in script directory
-2. Restart Norns
+2. Restart norns
 3. Load script
 4. Check `~/.norns/matron.log` for errors
 5. Use `engine.list_commands()` to verify parameters loaded
@@ -271,7 +271,7 @@ See `.prompts/engines/osc-testing.md` for:
 ## Performance Tips
 
 - **Control-rate parameters** (`Env.kr()`) are cheaper than audio-rate
-- Avoid expensive operations like `FFT` on Norns
+- Avoid expensive operations like `FFT` on norns
 - Use `FreeSelf` instead of allocating/deallocating synths
 - Profile with `s.queryAllNodes` to check CPU usage
 - Keep sample loading minimal (limited disk I/O)
@@ -279,8 +279,8 @@ See `.prompts/engines/osc-testing.md` for:
 ## Reference Resources
 
 - SuperCollider Language: https://doc.sccode.org/
-- Norns API (Engine): https://monome.org/docs/norns/api/#engine
-- Norns Reference (Engine): https://monome.org/docs/norns/reference/engine/
+- norns API (Engine): https://monome.org/docs/norns/api/#engine
+- norns Reference (Engine): https://monome.org/docs/norns/reference/engine/
 - Example engines: ../norns/lua/engine/
 - Crone source: ../norns/crone/src/
 - OSC methods: ../norns/crone/osc-methods.txt
