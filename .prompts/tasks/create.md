@@ -3,6 +3,27 @@
 ## Objective
 Build a new Norns script from scratch with proper structure and functionality.
 
+## Script vs Mod?
+
+Before starting, determine if you're building a **Script** or a **Mod**:
+
+- **Script** (this guide): Standalone application in `~/dust/code/`
+  - User launches it to run
+  - Provides a specific tool/instrument/effect
+  - Has its own UI and behavior
+  - Examples: sequencer, drum machine, synthesizer, effect processor
+  - Follow this guide
+
+- **Mod** (different guide): System modification in `~/dust/mods/`
+  - Loads at system startup
+  - Affects ALL scripts via hooks
+  - Provides utilities or system enhancements
+  - Disabled by default (user must enable)
+  - Examples: parameter utilities, MIDI router, screen helpers
+  - Use `.prompts/tasks/create-mod.md` instead
+
+If building a **Mod**, see `.prompts/tasks/create-mod.md` for the mod-specific workflow.
+
 ## Workflow
 
 ### 1. Clarify Requirements

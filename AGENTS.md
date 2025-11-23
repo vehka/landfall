@@ -11,22 +11,32 @@ Dynamically load relevant prompt modules based on detected context:
 Detect the primary development task from user input, git context, or file changes:
 
 - **Create**: Building a new Norns script from scratch
-- **Understand**: Analyzing and explaining an existing script or engine
-- **Enhance**: Adding new features to an existing script
-- **Bugfix**: Diagnosing and fixing issues in a script
+  - **Sub-type: Create Script** (traditional application)
+  - **Sub-type: Create Mod** (system-level modification)
+- **Understand**: Analyzing and explaining an existing script, mod, or engine
+- **Enhance**: Adding new features to an existing script or mod
+- **Bugfix**: Diagnosing and fixing issues in a script or mod
 
 ### 2. Context Recognition
 
 Identify script scope and requirements:
 
-**Script Type**:
-- Basic script (simple sequencer, drum machine, effects processor)
-- Grid-enabled script (uses grid controller)
-- Arc-enabled script (uses arc rotary encoder)
-- MIDI integration (external MIDI devices)
-- Hardware synthesis (custom SuperCollider engine)
-- Data/file management (saving/loading state)
-- Network/OSC communication
+**Work Type**:
+- **Script**: Standalone application in `~/dust/code/`
+  - Basic script (simple sequencer, drum machine, effects processor)
+  - Grid-enabled script (uses grid controller)
+  - Arc-enabled script (uses arc rotary encoder)
+  - MIDI integration (external MIDI devices)
+  - Hardware synthesis (custom SuperCollider engine)
+  - Data/file management (saving/loading state)
+  - Network/OSC communication
+
+- **Mod**: System modification in `~/dust/mods/` affecting all scripts
+  - Utility library (provides helper functions)
+  - Parameter extension (adds param types/behaviors)
+  - System enhancement (modifies core behavior)
+  - Audio processing (extends audio capabilities)
+  - Menu/UI mod (adds menu pages or features)
 
 **Complexity Level**:
 - Beginner: Simple UI, basic sequencing, single audio source
@@ -67,19 +77,25 @@ This library is organized in `.prompts/` with the following structure:
 - Testing strategy for new features
 - File structure and organization
 
+**create-mod.md** - Building a system-level mod
+- Mod vs script differences (system lifecycle, hooks)
+- Hook strategy and lifecycle integration
+- File structure and manifest creation
+- API exposure and testing procedures
+
 **understand.md** - Analyzing existing scripts and engines
 - Script survey and control flow analysis
 - Audio architecture examination
 - Library and dependency review
 - Documentation generation
 
-**enhance.md** - Adding features to existing scripts
+**enhance.md** - Adding features to existing scripts or mods
 - Feature definition and planning
 - Implementation strategy and integration
 - Development process for incremental changes
 - Testing and code quality checklist
 
-**bugfix.md** - Debugging and fixing issues
+**bugfix.md** - Debugging and fixing issues in scripts or mods
 - Issue characterization and logging
 - Common bug categories with solutions
 - Performance profiling
@@ -124,6 +140,24 @@ This library is organized in `.prompts/` with the following structure:
 - Velocity sensitivity and arpeggiators
 - Multi-channel routing and debugging
 
+### Mod Development (`.prompts/mods/`)
+
+**create-mod.md** - Full workflow for building mods (see also tasks/create-mod.md)
+- Hook strategy and lifecycle integration
+- File structure (lib/mod.lua is the only requirement)
+- Hook registration with working examples
+- API exposure for scripts
+- Testing and debugging procedures
+
+**patterns.md** - Common mod patterns and code examples
+- Utility library mod (provide helper functions)
+- Parameter extension mod (add param types)
+- Global state mod (track system data)
+- Environment modifier (inject globals into scripts)
+- MIDI processing, metro management, screen helpers
+- Documentation template (README.md best practices)
+- Performance considerations and debugging tips
+
 ### Engine Development (`.prompts/engines/`)
 
 **supercollider-basics.md** - SuperCollider synthesis engine development
@@ -139,22 +173,27 @@ When assisting with a Norns development task:
 
 1. **Detect task type** from user input
    - Is this about creating, understanding, enhancing, or fixing?
+   - If creating: Is it a script or a mod?
 
 2. **Identify requirements**
-   - What script type? (basic, grid, arc, MIDI, engine, data, OSC)
+   - Work type: Script or Mod?
+   - If Script: type (basic, grid, arc, MIDI, engine, data, OSC)
+   - If Mod: type (utility library, system enhancement, audio processing, etc.)
    - What complexity level? (beginner, intermediate, advanced)
-   - What hardware is involved?
+   - What hardware or system features are involved?
 
 3. **Load relevant prompts**
-   - Always: Core task workflow
-   - Based on context: Hardware guides, engine docs, reference materials
+   - Always: Core task workflow (tasks/ appropriate file)
+   - If Script: Load hardware guides, engine docs, reference materials as needed
+   - If Mod: Load .prompts/mods/ documents (patterns.md, manifest.md)
    - As needed: Studies or advanced patterns from references
 
 4. **Provide contextualized guidance**
-   - Use specific code examples from patterns.md
+   - **For Scripts**: Use examples from references/patterns.md
+   - **For Mods**: Use examples from mods/patterns.md
    - Reference API docs for function signatures
-   - Link to appropriate hardware guides
-   - Suggest SuperCollider approaches for custom synthesis
+   - Link to appropriate guides (hardware for scripts, hooks for mods)
+   - Suggest SuperCollider approaches for custom synthesis (scripts only)
 
 ## Tips for Effective Assistance
 
